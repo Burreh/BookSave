@@ -7,8 +7,7 @@ export default function App() {
   useEffect(() => {
     // TEST
     //fetch('http://www.omdbapi.com/?i=tt3896198&apikey=96da8d24')
-    // GDBdGMGvhAIUBM38hfoifg3V5MIB3h8H
-    fetch('https://api.nytimes.com/svc/books/v3/lists/current/hardcover-fiction.json?api-key=GDBdGMGvhAIUBM38hfoifg3V5MIB3h8H')
+    fetch("https://www.googleapis.com/books/v1/volumes?q=flowers&filter=free-ebooks&key=AIzaSyAXprB-qNgrOSNzSxKx4Nx2MejU2TwFaLE")
       .then(res => res.json())
       .then(data => setData(data))
 
