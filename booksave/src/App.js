@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
 import './style/App.css';
+import Navbar from './components/Navbar';
+import BookList from './components/BookList';
 
 export default function App() {
   const [data, setData] = useState([]);
@@ -12,12 +14,13 @@ export default function App() {
       .then(res => res.json())
       .then(data => setData(data))
 
-  }, [])
+  }, []);
 
   return (
     <div className="container">
-      <h1>BookSave</h1>
+      <Navbar />
       <pre>{JSON.stringify(data, null, 2)}</pre>
+      <BookList />
     </div>
   );
 }
