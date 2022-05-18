@@ -7,7 +7,7 @@ export default function App() {
   useEffect(() => {
     // TEST
     //fetch('http://www.omdbapi.com/?i=tt3896198&apikey=96da8d24')
-    fetch("https://www.googleapis.com/books/v1/volumes?q=flowers&filter=free-ebooks&key=AIzaSyAXprB-qNgrOSNzSxKx4Nx2MejU2TwFaLE")
+    fetch("https://www.googleapis.com/books/v1/volumes?q=flowers&filter=free-ebooks&key=")
       .then(res => res.json())
       .then(data => setData(data))
 
