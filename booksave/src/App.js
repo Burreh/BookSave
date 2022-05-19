@@ -15,7 +15,7 @@ export default function App() {
   // since the useEffect callback should be a synchronous function
   const getBooks = async () => {
     // GET data from Google book API using axios
-    await axios.get(`https://www.googleapis.com/books/v1/volumes?q=colleen&key=${keys.maps}&maxResults=40`)
+    await axios.get(`https://www.googleapis.com/books/v1/volumes?q=${search}n&key=${keys.maps}&maxResults=30`)
       .then(data => {
         // &filter=free-ebooks
         console.log(data.data.items);
@@ -23,12 +23,11 @@ export default function App() {
       })
       .catch(error => {
         console.log(error);
-      })
-  }
-
+      });
+  };
+  // TODO Update the useEffect hook to run whenever the value (=search) changes
   useEffect(() => {
-    getBooks();
-    // TODO Update the useEffect hook to run whenever the value (=search) changes
+    getBooks()
   }, []);
 
   return (

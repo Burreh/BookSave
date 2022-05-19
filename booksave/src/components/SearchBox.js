@@ -2,9 +2,14 @@ import React from 'react'
 
 export default function SearchBox(props) {
 
-    const handleSubmit = e => {
+    const handleSubmit = (e) => {
         e.preventDefault();
+        console.log(props.search);
+    }
 
+    const handleChange = (e) => {
+        const searchValue = e.target.value;
+        props.setSearch(searchValue);
     }
 
     return (
@@ -12,7 +17,7 @@ export default function SearchBox(props) {
             <form onSubmit={handleSubmit}>
                 <input
                     type='text'
-                    onChange={(e) => props.setSearch(e.target.value)}
+                    onChange={handleChange}
                     className='form-control'
                     placeholder='Search for a book...'
                 >
