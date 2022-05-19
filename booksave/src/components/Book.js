@@ -1,7 +1,8 @@
 import React from 'react'
 
-export default function Book() {
+export default function Book({ book }) {
     return (
-        <div>Book</div>
+        <img src={book.volumeInfo.imageLinks.thumbnail}
+            alt={book.volumeInfo.title} />
     )
 }
