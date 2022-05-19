@@ -7,21 +7,24 @@ import keys from './keys.json';
 
 
 export default function App() {
-  const [data, setData] = useState([]);
+  const [result, setResult] = useState([]);
+
 
   useEffect(() => {
-    // TEST
-    //fetch('http://www.omdbapi.com/?i=tt3896198&apikey=96da8d24')
-    // GDBdGMGvhAIUBM38hfoifg3V5MIB3h8H
-    axios.get('https://www.googleapis.com/books/v1/volumes?q=flowers&projection=lite&key=' + keys.maps)
-      .then(data => { console.log(data) })
+    axios.get('https://www.googleapis.com/books/v1/volumes?q=colleen&filter=free-ebooks&key=' + keys.maps + "&maxResults=40")
+      .then(data => {
+        console.log(data.data.items)
+        setResult(data.data.items);
+      })
 
   }, []);
 
   return (
     <div className="container">
       <Navbar />
-      <pre>{data}</pre>
+      {result.map(book => (
+        <img src={book.volumeInfo.imageLinks.thumbnail} alt={book.title} />
+      ))}
       <BookList />
     </div>
   );
