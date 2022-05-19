@@ -1,20 +1,31 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
 import './style/App.css';
+import Navbar from './components/Navbar';
+import BookList from './components/BookList';
+import axios from 'axios';
+import keys from './keys.json';
+
 
 export default function App() {
-  const [data, setData] = useState([]);
+  const [result, setResult] = useState([]);
+
 
   useEffect(() => {
-    fetch("https://www.googleapis.com/books/v1/volumes?q=flowers&filter=free-ebooks&key=")
-      .then(res => res.json())
-      .then(data => setData(data))
+    axios.get('https://www.googleapis.com/books/v1/volumes?q=colleen&filter=free-ebooks&key=' + keys.maps + "&maxResults=40")
+      .then(data => {
+        console.log(data.data.items)
+        setResult(data.data.items);
+      })
 
   }, []);
 
   return (
     <div className="container">
-      <h1>BookSave</h1>
-      <pre>{JSON.stringify(data, null, 2)}</pre>
+      <Navbar />
+      {result.map(book => (
+        <img src={book.volumeInfo.imageLinks.thumbnail} alt={book.title} />
+      ))}
+      <BookList />
     </div>
   );
 }
