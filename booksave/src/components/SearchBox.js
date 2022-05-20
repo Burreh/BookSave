@@ -18,6 +18,7 @@ export default function SearchBox(props) {
                 <input
                     type='text'
                     onChange={handleChange}
+                    value={props.search}
                     className='form-control'
                     placeholder='Search for a book...'
                 >
