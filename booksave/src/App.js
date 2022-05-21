@@ -16,12 +16,11 @@ export default function App() {
   const getBooks = () => {
     // GET data from Google book API using axios
     axios.get(`https://www.googleapis.com/books/v1/volumes?q=${search}n&key=${keys.maps}&maxResults=30`)
-      .then(data => {
+      .then(response => {
         // &filter=free-ebooks
-        console.log(data);
-        console.log(data.data.items);
-        if (data.status === 200) {
-          setResult(data.data.items);
+        console.log(response.data.items);
+        if (response.status === 200) {
+          setResult(response.data.items);
         }
       })
       .catch(error => {

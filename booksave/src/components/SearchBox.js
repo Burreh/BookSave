@@ -5,7 +5,7 @@ export default function SearchBox(props) {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(props.search);
-        return props.getBooks()
+        props.getBooks()
     }
 
     const handleChange = (e) => {
@@ -22,8 +22,7 @@ export default function SearchBox(props) {
                     value={props.search}
                     className='form-control'
                     placeholder='Search for a book...'
-                >
-                </input>
+                />
                 <button type='submit' className='btn btn-primary'>Search</button>
             </form>
         </div>
