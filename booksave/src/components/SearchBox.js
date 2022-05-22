@@ -2,15 +2,11 @@ import React from 'react'
 
 export default function SearchBox(props) {
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log(props.search);
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        // Runs the function getBooks() from App.js
+        // which fetches data from Google API
         props.getBooks()
-    }
-
-    const handleChange = (e) => {
-        const searchValue = e.target.value;
-        props.setSearch(searchValue);
     }
 
     return (
@@ -18,8 +14,7 @@ export default function SearchBox(props) {
             <form onSubmit={handleSubmit}>
                 <input
                     type='text'
-                    onChange={handleChange}
-                    value={props.search}
+                    onChange={(event) => props.setSearch(event.target.value)}
                     className='form-control'
                     placeholder='Search for a book...'
                 />

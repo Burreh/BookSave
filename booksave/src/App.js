@@ -11,17 +11,13 @@ export default function App() {
   // For SearchBox
   const [search, setSearch] = useState('');
 
-  // The function is outside the useEffect hook 
-  // since the useEffect callback should be a synchronous function
+  // GET data from Google book API using axios
   const getBooks = () => {
-    // GET data from Google book API using axios
     axios.get(`https://www.googleapis.com/books/v1/volumes?q=${search}n&key=${keys.maps}&maxResults=30`)
       .then(response => {
         // &filter=free-ebooks
         console.log(response.data.items);
-        if (response.status === 200) {
-          setResult(response.data.items);
-        }
+        setResult(response.data.items);
       })
       .catch(error => {
         console.log(error);
@@ -33,7 +29,7 @@ export default function App() {
   return (
     <div className="container">
       <Navbar />
-      <SearchBox search={search} setSearch={setSearch} getBooks={getBooks} />
+      <SearchBox setSearch={setSearch} getBooks={getBooks} />
       <BookList books={result} />
     </div>
   );
