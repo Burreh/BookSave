@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './style/App.css';
 import axios from 'axios';
 import keys from './keys.json';
@@ -25,11 +25,38 @@ export default function App() {
       });
   };
 
-  // TODO add favourite book to the list
-  const addFavouriteBook = (book) => {
-    const newFavourite = [...favourites, book];
-    setFavourites(newFavourite);
+  useEffect(() => {
+    const bookFavourites = JSON.parse(
+      localStorage.getItem('faves')
+    );
+
+    setFavourites(bookFavourites);
+  }, []);
+
+  const saveToLocalStorage = (items) => {
+    localStorage.setItem('faves', JSON.stringify(items));
   };
+
+  const addFavouriteBook = (book) => {
+    const newFavouriteList = [...favourites, book];
+    setFavourites(newFavouriteList);
+    saveToLocalStorage(newFavouriteList);
+  };
+
+  /*const removeFavouriteMovie = (movie) => {
+    const newFavouriteList = favourites.filter(
+      (favourite) => favourite.imdbID !== movie.imdbID
+    );
+
+    setFavourites(newFavouriteList);
+    saveToLocalStorage(newFavouriteList);
+  };
+*/
+
+
+
+
+
 
   return (
     <div className="container">
@@ -38,6 +65,11 @@ export default function App() {
       <BookList
         books={result}
         onFavourite={addFavouriteBook} />
-    </div>
+      <h2>Favourites</h2>
+      <BookList
+        books={favourites}>
+      </BookList>
+    </div >
   );
 }
+
