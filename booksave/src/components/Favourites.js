@@ -3,7 +3,7 @@ import React from 'react'
 export default function Favourites() {
     return (
         <>
-            <button type="button" className="btn btn-primary">SAVE
+            <button type="button" className="btn btn-primary">FAVOURITES
                 <svg
                     width='1em'
                     height='1em'

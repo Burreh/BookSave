@@ -1,6 +1,6 @@
 import React from 'react'
 import Book from './Book'
-import Favourites from './AddFavourite'
+import Favourites from './Favourites'
 
 export default function BookList({ books, onFavourite }) {
 
