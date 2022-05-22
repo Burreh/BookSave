@@ -1,6 +1,6 @@
 import React from 'react'
 import Book from './Book'
-import SaveFavourite from './SaveFavourite'
+import Favourites from './AddFavourite'
 
 export default function BookList({ books, onFavourite }) {
 
@@ -9,7 +9,7 @@ export default function BookList({ books, onFavourite }) {
             {books.map((book, index) => (
                 <Book key={index} book={book} onFavourite={onFavourite} />
             ))}
-            <SaveFavourite />
+            <Favourites />
         </div>
     )
 }

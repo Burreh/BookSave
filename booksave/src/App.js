@@ -11,13 +11,13 @@ export default function App() {
   const [result, setResult] = useState([]);
   const [search, setSearch] = useState('');
   const [favourites, setFavourites] = useState([]);
+  console.log(favourites)
 
   // GET data from Google book API using axios
   const getBooks = () => {
     axios.get(`https://www.googleapis.com/books/v1/volumes?q=${search}n&key=${keys.maps}&maxResults=30`)
       .then(response => {
         // &filter=free-ebooks
-        console.log(response.data.items);
         setResult(response.data.items);
       })
       .catch(error => {

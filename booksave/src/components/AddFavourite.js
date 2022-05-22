@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function SaveFavourite() {
+export default function Favourites() {
     return (
         <>
             <button type="button" className="btn btn-primary">SAVE
