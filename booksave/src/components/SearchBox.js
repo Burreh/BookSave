@@ -10,16 +10,23 @@ export default function SearchBox(props) {
     }
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
-                <input
-                    type='text'
-                    onChange={(event) => props.setSearch(event.target.value)}
-                    className='form-control'
-                    placeholder='Search for a book...'
-                />
-                <button type='submit' className='btn btn-primary'>Search</button>
-            </form>
+        <div className="input-group">
+            <div className="form-outline">
+                <form onSubmit={handleSubmit}>
+                    <label className="form-label">Search</label>
+                    <input
+                        type='search'
+                        onChange={(event) => props.setSearch(event.target.value)}
+                        className='form-control'
+                        placeholder='Search for a book...'
+                    />
+
+                    <button type='submit' className='btn btn-primary'>
+                        <i class="fa fa-search"></i>
+                    </button>
+
+                </form>
+            </div>
         </div>
     )
 }
