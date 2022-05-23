@@ -11,7 +11,6 @@ export default function App() {
   const [result, setResult] = useState([]);
   const [search, setSearch] = useState('');
   const [favourites, setFavourites] = useState([]);
-  console.log(favourites)
 
   // GET data from Google book API using axios
   const getBooks = () => {
@@ -71,3 +70,4 @@ export default function App() {
     </div >
   );
 }
+
