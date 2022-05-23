@@ -7,7 +7,6 @@ import BookListFavourites from './components/BookListFavourites';
 import Navbar from './components/Navbar';
 import SearchBox from './components/SearchBox';
 
-
 export default function App() {
   const [result, setResult] = useState([]);
   const [search, setSearch] = useState('');
@@ -48,15 +47,14 @@ export default function App() {
     saveToLocalStorage(newFavouriteList);
   };
 
-  const deleteFavourite = (movie) => {
+  const deleteFavourite = (book) => {
     const newFavouriteList = favourites.filter(
-      (favourite) => favourite.imdbID !== movie.imdbID
+      (favourite) => favourite.id !== book.id
     );
 
     setFavourites(newFavouriteList);
     saveToLocalStorage(newFavouriteList);
   };
-
 
   return (
     <div className="container">
@@ -73,4 +71,3 @@ export default function App() {
     </div >
   );
 }
-

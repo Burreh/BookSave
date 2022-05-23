@@ -9,7 +9,6 @@ export default function BookList({ books, onDelete, button }) {
             {books.map((book, index) => (
                 <DeleteBook key={index} book={book} onDelete={onDelete} button={button} />
             ))}
-            <Favourites />
         </div>
     )
 }

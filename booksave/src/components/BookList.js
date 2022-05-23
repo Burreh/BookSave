@@ -9,7 +9,6 @@ export default function BookList({ books, onFavourite, button }) {
             {books.map((book, index) => (
                 <SaveBook key={index} book={book} onFavourite={onFavourite} button={button} />
             ))}
-            <Favourites />
         </div>
     )
 }
