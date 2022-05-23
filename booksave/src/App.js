@@ -3,6 +3,7 @@ import './style/App.css';
 import axios from 'axios';
 import keys from './keys.json';
 import BookList from './components/BookList';
+import BookListFavourites from './components/BookListFavourites';
 import Navbar from './components/Navbar';
 import SearchBox from './components/SearchBox';
 
@@ -26,11 +27,15 @@ export default function App() {
   };
 
   useEffect(() => {
-    const bookFavourites = JSON.parse(
-      localStorage.getItem('faves')
-    );
+    const bookFavourites = localStorage.getItem('faves');
+    if (bookFavourites !== undefined) {
+      let favourites = JSON.parse(bookFavourites);
+    }
+    else {
+      let favourites = [];
+    }
 
-    setFavourites(bookFavourites);
+    setFavourites(favourites);
   }, []);
 
   const saveToLocalStorage = (items) => {
@@ -43,7 +48,7 @@ export default function App() {
     saveToLocalStorage(newFavouriteList);
   };
 
-  /*const removeFavouriteMovie = (movie) => {
+  const deleteFavourite = (movie) => {
     const newFavouriteList = favourites.filter(
       (favourite) => favourite.imdbID !== movie.imdbID
     );
@@ -51,11 +56,6 @@ export default function App() {
     setFavourites(newFavouriteList);
     saveToLocalStorage(newFavouriteList);
   };
-*/
-
-
-
-
 
 
   return (
@@ -66,9 +66,10 @@ export default function App() {
         books={result}
         onFavourite={addFavouriteBook} />
       <h2>Favourites</h2>
-      <BookList
-        books={favourites}>
-      </BookList>
+      <BookListFavourites
+        books={favourites}
+        onDelete={deleteFavourite}>
+      </BookListFavourites>
     </div >
   );
 }

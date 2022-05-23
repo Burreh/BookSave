@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Book({ book, onFavourite }) {
+export default function SaveBook({ book, onFavourite }) {
 
     return (
         <>

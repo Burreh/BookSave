@@ -1,15 +1,16 @@
 import React from 'react'
-import SaveBook from './SaveBook'
+import DeleteBook from './DeleteBook'
 import Favourites from './Favourites'
 
-export default function BookList({ books, onFavourite, button }) {
+export default function BookList({ books, onDelete, button }) {
 
     return (
         <div>
             {books.map((book, index) => (
-                <SaveBook key={index} book={book} onFavourite={onFavourite} button={button} />
+                <DeleteBook key={index} book={book} onDelete={onDelete} button={button} />
             ))}
             <Favourites />
         </div>
     )
 }
+
