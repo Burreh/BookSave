@@ -27,13 +27,9 @@ export default function App() {
   useEffect(() => {
     const bookFavourites = localStorage.getItem('faves');
     if (bookFavourites !== undefined) {
-      let favourites = JSON.parse(bookFavourites);
-    }
-    else {
-      let favourites = [];
+      setFavourites(JSON.parse(bookFavourites));
     }
 
-    setFavourites(favourites);
   }, []);
 
   const saveToLocalStorage = (items) => {
