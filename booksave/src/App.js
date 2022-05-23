@@ -3,7 +3,7 @@ import './style/App.css';
 import axios from 'axios';
 import keys from './keys.json';
 import BookList from './components/BookList';
-import BookListFavourites from './components/BookListFavourites';
+import Favourites from './components/Favourites';
 import Navbar from './components/Navbar';
 import SearchBox from './components/SearchBox';
 
@@ -62,11 +62,9 @@ export default function App() {
       <BookList
         books={result}
         onFavourite={addFavouriteBook} />
-      <h2>Favourites</h2>
-      <BookListFavourites
+      <Favourites
         books={favourites}
-        onDelete={deleteFavourite}>
-      </BookListFavourites>
+        onDelete={deleteFavourite} />
     </div >
   );
 }

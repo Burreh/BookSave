@@ -1,9 +1,14 @@
 import React from 'react'
+import DeleteBook from './DeleteBook'
 
-export default function Favourites() {
+export default function BookList({ books, onDelete, button }) {
+
     return (
-        <h1>Welcome to the world of Geeks!</h1>
+        <div>
+            <h2>Favourites</h2>
+            {books.map((book, index) => (
+                <DeleteBook key={index} book={book} onDelete={onDelete} button={button} />
+            ))}
+        </div>
     )
 }
-
-
