@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import './style/App.css';
-import axios from 'axios';
 import keys from './keys.json';
 import BookList from './components/BookList';
 import Favourites from './components/Favourites';
 import Navbar from './components/Navbar';
 import SearchBox from './components/SearchBox';
+
+const axios = require('axios').default;
 
 export default function App() {
   const [result, setResult] = useState([]);
@@ -18,10 +19,9 @@ export default function App() {
       .then(response => {
         // &filter=free-ebooks
         setResult(response.data.items);
-        console.log(response.data.items)
       })
       .catch(error => {
-        console.log(error);
+        console.log(error.message);
       });
   };
 
@@ -30,7 +30,9 @@ export default function App() {
     if (bookFavourites !== undefined) {
       setFavourites(JSON.parse(bookFavourites));
     }
-
+    else {
+      setFavourites([]);
+    }
   }, []);
 
   const saveToLocalStorage = (items) => {
@@ -55,7 +57,9 @@ export default function App() {
   return (
     <div className="container">
       <Navbar />
-      <SearchBox setSearch={setSearch} getBooks={getBooks} />
+      <SearchBox
+        setSearch={setSearch}
+        getBooks={getBooks} />
       <BookList
         books={result}
         onFavourite={addFavouriteBook} />
