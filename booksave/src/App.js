@@ -14,10 +14,11 @@ export default function App() {
 
   // GET data from Google book API using axios
   const getBooks = () => {
-    axios.get(`https://www.googleapis.com/books/v1/volumes?q=${search}n&key=${keys.maps}&maxResults=30`)
+    axios.get(`https://www.googleapis.com/books/v1/volumes?q=${search}n&key=${keys.maps}&maxResults=28`)
       .then(response => {
         // &filter=free-ebooks
         setResult(response.data.items);
+        console.log(response.data.items)
       })
       .catch(error => {
         console.log(error);

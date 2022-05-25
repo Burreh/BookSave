@@ -1,1 +1,10 @@
 /* Here's our own styling */
+.book-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.book-box {
+    flex-basis: 25%;
+    border: 1px black solid;
+}

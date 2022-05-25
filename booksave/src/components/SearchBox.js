@@ -12,19 +12,21 @@ export default function SearchBox(props) {
     return (
         <div className="input-group">
             <div className="form-outline">
-                <form onSubmit={handleSubmit}>
-                    <label className="form-label">Search</label>
-                    <input
-                        type='search'
-                        onChange={(event) => props.setSearch(event.target.value)}
-                        className='form-control'
-                        placeholder='Search for a book...'
-                    />
-
-                    <button type='submit' className='btn btn-primary'>
-                        <i class="fa fa-search"></i>
-                    </button>
-
+                <form className="form-inline my-2 my-lg-0" onSubmit={handleSubmit}>
+                    <div className="input-group">
+                        <input className="form-control"
+                            id="address-bar"
+                            type="search"
+                            placeholder="Search..."
+                            aria-label="Search..."
+                            onChange={(event) => props.setSearch(event.target.value)}
+                        />
+                        <div className="input-group-append">
+                            <button type='submit' className='btn btn-primary'>
+                                <i className="fa fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>
