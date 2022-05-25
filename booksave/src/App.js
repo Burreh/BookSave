@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import './style/App.css';
 import keys from './keys.json';
 import BookList from './components/BookList';
 import Favourites from './components/Favourites';
 import Navbar from './components/Navbar';
 import SearchBox from './components/SearchBox';
+import Home from './pages/Home'
 
 const axios = require('axios').default;
 
@@ -62,18 +64,24 @@ export default function App() {
   };
 
   return (
-    <div className="container">
-      <Navbar />
-      <SearchBox
-        setSearch={setSearch}
-        getBooks={getBooks} />
-      <BookList
-        books={result}
-        onFavourite={addFavouriteBook} />
-      <Favourites
-        books={favourites}
-        onDelete={deleteFavourite} />
-    </div >
+    <BrowserRouter>
+      <div className="container">
+        <Navbar />
+        <SearchBox
+          setSearch={setSearch}
+          getBooks={getBooks} />
+        <BookList
+          books={result}
+          onFavourite={addFavouriteBook} />
+        <Favourites
+          books={favourites}
+          onDelete={deleteFavourite} />
+      </div >
+      <Routes>
+        <Route path="/" element={<App />} />
+        <Route path="home" element={Home} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
