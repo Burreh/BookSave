@@ -15,7 +15,7 @@ export default function App() {
 
   // GET data from Google book API using axios
   const getBooks = () => {
-    axios.get(`https://www.googleapis.com/books/v1/volumes?q=${search}n&key=${keys.maps}&maxResults=28`)
+    axios.get(`https://www.googleapis.com/books/v1/volumes?q=${search}n&key=${keys.maps}&maxResults=36`)
       .then(response => {
         // &filter=free-ebooks
         setResult(response.data.items);
@@ -24,6 +24,12 @@ export default function App() {
         console.log(error.message);
       });
   };
+
+  // Run function getBooks() data when page gets initially rendered
+  useEffect(() => {
+    getBooks();
+    // Stop page from re-rendering with empty array
+  }, []);
 
   useEffect(() => {
     const bookFavourites = localStorage.getItem('faves');
@@ -35,8 +41,9 @@ export default function App() {
     }
   }, []);
 
-  const saveToLocalStorage = (items) => {
-    localStorage.setItem('faves', JSON.stringify(items));
+  // Save the books to localStorage under the key == faves
+  const saveToLocalStorage = (books) => {
+    localStorage.setItem('faves', JSON.stringify(books));
   };
 
   const addFavouriteBook = (book) => {
