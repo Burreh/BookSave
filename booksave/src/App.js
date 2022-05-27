@@ -18,7 +18,6 @@ export default function App() {
   const getBooks = () => {
     axios.get(`https://www.googleapis.com/books/v1/volumes?q=${search}n&key=${keys.maps}&maxResults=36`)
       .then(response => {
-        // &filter=free-ebooks
         setResult(response.data.items);
       })
       .catch(error => {

@@ -14,8 +14,12 @@ export default function SaveBook({ book, onFavourite }) {
                     <div>
                         <p>{bookInfo.title}</p>
                     </div>
-                    <button onClick={() => onFavourite(book)}
-                        style={{ cursor: 'pointer' }}>Save</button>
+                    <button
+                        className="btn btn-success"
+                        onClick={() => onFavourite(book)}
+                        style={{ cursor: 'pointer' }}
+                    >Save
+                    </button>
                 </>
             }
 
