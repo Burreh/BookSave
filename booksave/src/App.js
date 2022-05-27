@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from 'react-router-dom';
 import './style/App.css';
 import keys from './keys.json';
 import BookList from './components/BookList';
 import Favourites from './components/Favourites';
 import Navbar from './components/Navbar';
 import SearchBox from './components/SearchBox';
-import Home from './pages/Home'
 
 const axios = require('axios').default;
 
@@ -27,20 +26,16 @@ export default function App() {
       });
   };
 
-  // Run function getBooks() data when page gets initially rendered
   useEffect(() => {
+    // Run function getBooks() data when page gets initially rendered
     getBooks();
-    // Stop page from re-rendering with empty array
-  }, []);
 
-  useEffect(() => {
     const bookFavourites = localStorage.getItem('faves');
     if (bookFavourites !== undefined) {
       setFavourites(JSON.parse(bookFavourites));
     }
-    else {
-      setFavourites([]);
-    }
+
+    // Stop page from re-rendering with empty array
   }, []);
 
   // Save the books to localStorage under the key == faves
@@ -64,24 +59,21 @@ export default function App() {
   };
 
   return (
-    <BrowserRouter>
-      <div className="container">
-        <Navbar />
-        <SearchBox
-          setSearch={setSearch}
-          getBooks={getBooks} />
-        <BookList
-          books={result}
-          onFavourite={addFavouriteBook} />
-        <Favourites
-          books={favourites}
-          onDelete={deleteFavourite} />
-      </div >
+    <div className="container">
+      <Navbar />
+      <SearchBox
+        setSearch={setSearch}
+        getBooks={getBooks} />
       <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="home" element={Home} />
+        <Route path="/" element={
+          <BookList
+            books={result}
+            onFavourite={addFavouriteBook} />} />
+        <Route path="/To-read" element={
+          <Favourites
+            books={favourites}
+            onDelete={deleteFavourite} />} />
       </Routes>
-    </BrowserRouter>
+    </div >
   );
 }
-
