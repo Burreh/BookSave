@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Container from 'react-bootstrap/Container';
 import './style/App.css';
 import keys from './keys.json';
 import BookList from './components/BookList';
@@ -59,21 +60,23 @@ export default function App() {
   };
 
   return (
-    <div className="container">
+    <>
       <Header />
-      <SearchBox
-        setSearch={setSearch}
-        getBooks={getBooks} />
-      <Routes>
-        <Route path="/" element={
-          <BookList
-            books={result}
-            onFavourite={addFavouriteBook} />} />
-        <Route path="/To-read" element={
-          <Favourites
-            books={favourites}
-            onDelete={deleteFavourite} />} />
-      </Routes>
-    </div >
+      <Container fluid="xl">
+        <SearchBox
+          setSearch={setSearch}
+          getBooks={getBooks} />
+        <Routes>
+          <Route path="/" element={
+            <BookList
+              books={result}
+              onFavourite={addFavouriteBook} />} />
+          <Route path="/To-read" element={
+            <Favourites
+              books={favourites}
+              onDelete={deleteFavourite} />} />
+        </Routes>
+      </Container >
+    </>
   );
 }

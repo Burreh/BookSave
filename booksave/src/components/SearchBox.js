@@ -11,12 +11,12 @@ export default function SearchBox(props) {
 
     return (
         <div className="input-group">
-            <div className="form-outline">
+            <div className="form-outline" id="search-bar">
                 <form className="form-inline my-2 my-lg-0" onSubmit={handleSubmit}>
                     <div className="input-group">
-                        <input className="form-control"
-                            id="search-bar"
+                        <input className="form-control "
                             type="search"
+
                             placeholder="Search..."
                             aria-label="Search..."
                             onChange={(event) => props.setSearch(event.target.value)}
