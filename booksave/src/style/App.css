@@ -8,17 +8,3 @@
     flex-basis: 25%;
     border: 1px black solid;
 }
-
-.navbar ul {
-    width: 100%;
-    text-align: center;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    background-color: bisque;
-}
-
-.navbar a {
-    text-decoration: none;
-    color: black;
-}

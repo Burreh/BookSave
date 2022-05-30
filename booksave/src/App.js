@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './style/App.css';
 import keys from './keys.json';
 import BookList from './components/BookList';
 import Favourites from './components/Favourites';
-import Navbar from './components/Navbar';
+import Header from './components/Header';
 import SearchBox from './components/SearchBox';
 
 const axios = require('axios').default;
@@ -59,7 +60,7 @@ export default function App() {
 
   return (
     <div className="container">
-      <Navbar />
+      <Header />
       <SearchBox
         setSearch={setSearch}
         getBooks={getBooks} />
