@@ -19,7 +19,8 @@ export default function SearchBox(props) {
 
                             placeholder="Search..."
                             aria-label="Search..."
-                            onChange={(event) => props.setSearch(event.target.value)}
+                            onChange={(event) =>
+                                props.setSearch(event.target.value.toLowerCase())}
                         />
                         <button type='submit' className='btn btn-primary'>
                             <i className="fa fa-search"></i>

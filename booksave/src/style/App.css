@@ -4,6 +4,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 #navbar {
@@ -16,8 +17,12 @@
 }
 
 .book-box {
-    flex-basis: 25%;
-    border: 1px black solid;
+    margin: 0 auto;
+    padding-top: 4vh;
+}
+
+.book-box img {
+    height: 443px;
 }
 
 #search-bar {

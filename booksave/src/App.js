@@ -15,6 +15,7 @@ export default function App() {
   const [result, setResult] = useState([]);
   const [search, setSearch] = useState('');
   const [favourites, setFavourites] = useState([]);
+  const [booksRead, setbooksRead] = useState([]);
 
   // GET data from Google book API using axios
   const getBooks = () => {
@@ -58,11 +59,13 @@ export default function App() {
     setFavourites(newFavouriteList);
     saveToLocalStorage(newFavouriteList);
   };
+  // TODO!
+  // const finishedReading = ()
 
   return (
     <>
       <Header />
-      <Container fluid="xl">
+      <Container fluid="md">
         <SearchBox
           setSearch={setSearch}
           getBooks={getBooks} />

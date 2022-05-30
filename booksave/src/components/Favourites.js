@@ -4,11 +4,13 @@ import DeleteBook from './DeleteBook'
 export default function BookList({ books, onDelete }) {
 
     return (
-        <div>
+        <>
             <h2>Favourites</h2>
-            {books?.map((book, index) => (
-                <DeleteBook key={index} book={book} onDelete={onDelete} />
-            ))}
-        </div>
+            <div className="book-list">
+                {books?.map((book, index) => (
+                    <DeleteBook key={index} book={book} onDelete={onDelete} />
+                ))}
+            </div>
+        </>
     )
 }
