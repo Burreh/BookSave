@@ -18,7 +18,7 @@ export default function SaveBook({ book, onFavourite }) {
                             ##
                         </Card.Text>
                         <button
-                            className="btn btn-success"
+                            className="btn btn-primary"
                             onClick={() => onFavourite(book)}
                             style={{ cursor: 'pointer' }}
                         >Save

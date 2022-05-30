@@ -1,6 +1,5 @@
 import React from 'react'
-import Card from 'react-bootstrap/Card'
-import { Link } from 'react-router-dom';
+import { Card, Button } from 'react-bootstrap'
 
 export default function SaveBook({ book, onDelete }) {
 
@@ -21,12 +20,13 @@ export default function SaveBook({ book, onDelete }) {
                         <Card.Text>
                             #text
                         </Card.Text>
-                        <button
-                            className="btn btn-danger"
-                            onClick={() => onDelete(book)}
-                            style={{ cursor: 'pointer' }}
-                        >Delete
-                        </button>
+                        {/* TODO! click to save to finished */}
+                        <Button variant="outline-success">
+                            Finish
+                        </Button>
+                        <Button variant="outline-danger"
+                            onClick={() => onDelete(book)}>Delete
+                        </Button>
                     </Card.Body>
                 </Card>
             }
