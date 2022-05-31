@@ -1,5 +1,5 @@
 import React from 'react'
-import Card from 'react-bootstrap/Card'
+import { Card, Button } from 'react-bootstrap'
 
 export default function SaveBook({ book, onFavourite }) {
 
@@ -9,20 +9,17 @@ export default function SaveBook({ book, onFavourite }) {
         <div className='book-box'>
             {/* If imagelinks is undefined, don't show those books' covers */}
             {bookInfo.imageLinks !== undefined &&
-                <Card border="dark" bg="light" style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src={bookInfo.imageLinks.smallThumbnail}
-                        alt={bookInfo.title} />
+                <Card border="dark" style={{ width: '18rem' }}>
+                    <a href={bookInfo.infoLink} target="_blank" rel="noreferrer">
+                        <Card.Img variant="top" src={bookInfo.imageLinks.thumbnail}
+                            alt={bookInfo.title} />
+                    </a>
                     <Card.Body>
-                        <Card.Title>TITLE </Card.Title>
-                        <Card.Text>
-                            ##
-                        </Card.Text>
-                        <button
-                            className="btn btn-primary"
+                        <Card.Title>{bookInfo.title}</Card.Title>
+                        <Button variant="outline-primary"
                             onClick={() => onFavourite(book)}
-                            style={{ cursor: 'pointer' }}
-                        >Save
-                        </button>
+                        >Add To-Read
+                        </Button>
                     </Card.Body>
                 </Card>
             }
