@@ -5,9 +5,10 @@ import Container from 'react-bootstrap/Container';
 import './style/App.css';
 import keys from './keys.json';
 import BookList from './components/BookList';
-import Favourites from './components/Favourites';
+import ToReadList from './components/ToReadList';
 import Header from './components/Header';
 import SearchBox from './components/SearchBox';
+import FinishList from './components/FinishList';
 
 const axios = require('axios').default;
 
@@ -15,7 +16,7 @@ export default function App() {
   const [result, setResult] = useState([]);
   const [search, setSearch] = useState('');
   const [favourites, setFavourites] = useState([]);
-  const [booksRead, setbooksRead] = useState([]);
+  const [booksRead, setBooksRead] = useState([]);
 
   // GET data from Google book API using axios
   const getBooks = () => {
@@ -59,8 +60,12 @@ export default function App() {
     setFavourites(newFavouriteList);
     saveToLocalStorage(newFavouriteList);
   };
-  // TODO!
-  // const finishedReading = ()
+  // TODO
+  const finishedReading = (book) => {
+    const newReadList = [...booksRead, book];
+    setBooksRead(newReadList);
+    localStorage.setItem('finished', JSON.stringify(booksRead));
+  };
 
   return (
     <>
@@ -75,9 +80,13 @@ export default function App() {
               books={result}
               onFavourite={addFavouriteBook} />} />
           <Route path="/To-read" element={
-            <Favourites
+            <ToReadList
               books={favourites}
-              onDelete={deleteFavourite} />} />
+              onDelete={deleteFavourite}
+              onFinish={finishedReading} />} />
+          <Route path="/Finished-reading" element={
+            <FinishList
+              books={booksRead} />} />
         </Routes>
       </Container >
     </>

@@ -14,9 +14,9 @@ export default function SearchBox(props) {
             <div className="form-outline" id="search-bar">
                 <form className="form-inline my-2 my-lg-0" onSubmit={handleSubmit}>
                     <div className="input-group">
-                        <input className="form-control "
+                        <input className="form-control"
+                            id="search-input"
                             type="search"
-
                             placeholder="Search..."
                             aria-label="Search..."
                             onChange={(event) =>

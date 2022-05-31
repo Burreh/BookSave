@@ -21,14 +21,15 @@
     padding-top: 4vh;
 }
 
-.book-box img {
-    height: 443px;
-}
-
 #search-bar {
     width: 100%;
     padding: 2%;
     border: 20%;
+}
+
+.heading {
+    padding-top: 3vh;
+    text-align: center;
 }
 
 button {
