@@ -12,10 +12,14 @@ This project was made with [Create React App](https://reactjs.org/docs/create-a-
 
 ## React VS Angular / Vue.js
 
+Why we chose React over Angular or Vue:
+
+* React is scalable and flexible.
 * React is popular and used by many today. This means greater opportunity for solution proposals for any code-related problems.
 * It is modular, which means that it is made up of a collection of "building blocks" that can be configured in different ways, based on need.
-* Instead of having a single large file, you divide it into smaller components that make it easier to implement and reuse.
-* React is scalable and flexible.
+* React has an easier learning curve (in our opinion) compared to the other two.
+* According to statistics, having knowledge about React is highly sought after among employers. 
+
 
 ## Install
 
