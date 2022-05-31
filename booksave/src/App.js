@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Container from 'react-bootstrap/Container';
 import './style/App.css';
 import keys from './keys.json';
 import BookList from './components/BookList';
 import Favourites from './components/Favourites';
-import Navbar from './components/Navbar';
+import Header from './components/Header';
 import SearchBox from './components/SearchBox';
 
 const axios = require('axios').default;
@@ -13,6 +15,7 @@ export default function App() {
   const [result, setResult] = useState([]);
   const [search, setSearch] = useState('');
   const [favourites, setFavourites] = useState([]);
+  const [booksRead, setbooksRead] = useState([]);
 
   // GET data from Google book API using axios
   const getBooks = () => {
@@ -56,23 +59,27 @@ export default function App() {
     setFavourites(newFavouriteList);
     saveToLocalStorage(newFavouriteList);
   };
+  // TODO!
+  // const finishedReading = ()
 
   return (
-    <div className="container">
-      <Navbar />
-      <SearchBox
-        setSearch={setSearch}
-        getBooks={getBooks} />
-      <Routes>
-        <Route path="/" element={
-          <BookList
-            books={result}
-            onFavourite={addFavouriteBook} />} />
-        <Route path="/To-read" element={
-          <Favourites
-            books={favourites}
-            onDelete={deleteFavourite} />} />
-      </Routes>
-    </div >
+    <>
+      <Header />
+      <Container fluid="md">
+        <SearchBox
+          setSearch={setSearch}
+          getBooks={getBooks} />
+        <Routes>
+          <Route path="/" element={
+            <BookList
+              books={result}
+              onFavourite={addFavouriteBook} />} />
+          <Route path="/To-read" element={
+            <Favourites
+              books={favourites}
+              onDelete={deleteFavourite} />} />
+        </Routes>
+      </Container >
+    </>
   );
 }
