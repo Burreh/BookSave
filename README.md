@@ -1,6 +1,6 @@
 # BookSave
 
-BookSave is a UI that help users find inspiration for reading books.
+BookSave is a web app that help users find inspiration for reading books.
 
 * A Place where you can search and save different books in a **"To-read" list**.
 * After you have finished reading a book, it can be saved in a so called **"Finished" list**.
@@ -18,13 +18,15 @@ Why we chose React over Angular or Vue:
 * React is popular and used by many today. This means greater opportunity for solution proposals for any code-related problems.
 * It is modular, which means that it is made up of a collection of "building blocks" that can be configured in different ways, based on need.
 * React has an easier learning curve (in our opinion) compared to the other two.
-* According to statistics, having knowledge about React is highly sought after among employers. 
+* Having knowledge about React is highly sought after among employers. 
 
 
 ## Install
 
 First, make sure you have installed [node.js](https://nodejs.org/en/).
-To run the app, you need to install the modules below.
+Create a new file called ```keys.json``` with structure identical to ```keys.json.ex```
+Ask the developers of this project for the API-key to be put inside **keys.json**. 
+Furthermore, you need to install the modules below.
 
 Using npm:
 ```bash
@@ -38,7 +40,7 @@ $ yarn add react-router-dom
 $ yarn add react-bootstrap
 ```
 
-### How to Run
+## How to Run
 
 In the project directory, you can run:
 
