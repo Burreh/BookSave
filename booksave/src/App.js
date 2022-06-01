@@ -38,6 +38,11 @@ export default function App() {
       setFavourites(JSON.parse(bookFavourites));
     }
 
+    const bookFinished = localStorage.getItem('finished');
+    if (bookFinished !== undefined) {
+      setBooksRead(JSON.parse(bookFinished));
+    }
+
     // Stop page from re-rendering with empty array
   }, []);
 
@@ -60,11 +65,13 @@ export default function App() {
     setFavourites(newFavouriteList);
     saveToLocalStorage(newFavouriteList);
   };
-  // TODO
-  const finishedReading = (book) => {
+
+  const finishReading = (book) => {
     const newReadList = [...booksRead, book];
     setBooksRead(newReadList);
-    localStorage.setItem('finished', JSON.stringify(booksRead));
+
+    deleteFavourite(book)
+    localStorage.setItem('finished', JSON.stringify(newReadList));
   };
 
   return (
@@ -83,7 +90,7 @@ export default function App() {
             <ToReadList
               books={favourites}
               onDelete={deleteFavourite}
-              onFinish={finishedReading} />} />
+              onFinish={finishReading} />} />
           <Route path="/Finished-reading" element={
             <FinishList
               books={booksRead} />} />

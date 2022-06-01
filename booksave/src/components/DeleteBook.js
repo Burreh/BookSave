@@ -9,7 +9,7 @@ export default function SaveBook({ book, onDelete, onFinish }) {
         <div className='book-box'>
             {/* If imagelinks is undefined, don't show those books' covers */}
             {bookInfo.imageLinks !== undefined &&
-                <Card border="dark" bg="light" style={{ width: '18rem' }}>
+                <Card border="primary" bg="secondary" style={{ width: '18rem' }}>
                     <a href={bookInfo.infoLink} target="_blank" rel="noreferrer">
                         <Card.Img variant="top" src={bookInfo.imageLinks.thumbnail}
                             alt={bookInfo.title} />
@@ -17,7 +17,7 @@ export default function SaveBook({ book, onDelete, onFinish }) {
                     <Card.Body>
                         <Card.Title>{bookInfo.title}</Card.Title>
                         {/* TODO! click to save to finished */}
-                        <Button variant="outline-secondary"
+                        <Button variant="outline-light"
                             onclick={() => onFinish(book)}>Finish
                         </Button>
                         <Button variant="outline-danger"
