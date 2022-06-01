@@ -16,7 +16,7 @@ export default function SaveBook({ book, onFavourite }) {
                     </a>
                     <Card.Body>
                         <Card.Title>{bookInfo.title}</Card.Title>
-                        <Button variant="outline-primary"
+                        <Button variant="primary"
                             onClick={() => onFavourite(book)}
                         >Add To-Read
                         </Button>
