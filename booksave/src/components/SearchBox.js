@@ -1,12 +1,14 @@
-import React from 'react'
+import React, { useRef } from 'react'
 
-export default function SearchBox(props) {
+export default function SearchBox({ setSearch }) {
+    const inputValue = useRef();
 
+    // Changes the search value whenever a user submits
     const handleSubmit = (event) => {
         event.preventDefault();
-        // Runs the function getBooks() from App.js
-        // which fetches data from Google API
-        props.getBooks()
+        if (inputValue.current.value !== '') {
+            setSearch(inputValue.current.value);
+        }
     }
 
     return (
@@ -19,8 +21,7 @@ export default function SearchBox(props) {
                             type="search"
                             placeholder="Search..."
                             aria-label="Search..."
-                            onChange={(event) =>
-                                props.setSearch(event.target.value.toLowerCase())}
+                            ref={inputValue}
                         />
                         <button type='submit' className='btn btn-primary'>
                             <i className="fa fa-search"></i>

@@ -1,9 +1,20 @@
 import React from 'react'
 import { Card, Button } from 'react-bootstrap'
+import { toast } from 'react-toastify';
 
-export default function SaveBook({ book, onDelete, onFinish }) {
-
+export default function AddBook({ book, onFavourite }) {
     const bookInfo = book.volumeInfo;
+    const toastId = React.useRef(null);
+
+    // Displays a toast ("pop-up") when a user adds a book
+    const notify = () => {
+        if (!toast.isActive(toastId.current)) {
+            toastId.current = toast.info("Book added!", {
+                theme: 'colored',
+                position: toast.POSITION.TOP_CENTER
+            });
+        }
+    }
 
     return (
         <div className='book-box'>
@@ -16,13 +27,7 @@ export default function SaveBook({ book, onDelete, onFinish }) {
                     </a>
                     <Card.Body>
                         <Card.Title>{bookInfo.title}</Card.Title>
-                        {/* TODO! click to save to finished */}
-                        <Button variant="outline-light"
-                            onclick={() => onFinish(book)}>Finish
-                        </Button>
-                        <Button variant="outline-danger"
-                            onClick={() => onDelete(book)}>Delete
-                        </Button>
+                        <Button variant="primary" onClick={() => { onFavourite(book); notify() }}>Add To-Read</Button>
                     </Card.Body>
                 </Card>
             }

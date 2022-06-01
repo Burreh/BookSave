@@ -1,12 +1,12 @@
 import React from 'react'
-import SaveBook from './SaveBook'
+import AddBook from './AddBook'
 
 export default function BookList({ books, onFavourite }) {
 
     return (
         <div className='book-list'>
             {books?.map((book, index) => (
-                <SaveBook key={index} book={book} onFavourite={onFavourite} />
+                <AddBook key={index} book={book} onFavourite={onFavourite} />
             ))}
         </div>
     )
