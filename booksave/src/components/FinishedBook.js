@@ -9,9 +9,9 @@ export default function FinishedBook({ book }) {
         <div className='book-box'>
             {/* If imagelinks is undefined, don't show those books' covers */}
             {bookInfo.imageLinks !== undefined &&
-                <Card border="primary" bg="secondary" style={{ width: '18rem' }}>
+                <Card className='book-border' style={{ width: '18rem' }}>
                     <a href={bookInfo.infoLink} target="_blank" rel="noreferrer">
-                        <Card.Img variant="top" src={bookInfo.imageLinks.thumbnail}
+                        <Card.Img className='cardimg' variant="top" src={bookInfo.imageLinks.thumbnail}
                             alt={bookInfo.title} />
                     </a>
                     <Card.Body>

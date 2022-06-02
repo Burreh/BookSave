@@ -6,10 +6,12 @@ export default function ChangeBook({ book, onDelete, onFinish }) {
     const bookInfo = book.volumeInfo;
 
     const notifyFinish = () => {
+
         toast.success("Book finished!", {
             theme: 'colored',
             position: toast.POSITION.TOP_CENTER
         });
+
     }
 
     const notifyDelete = () => {
@@ -19,13 +21,14 @@ export default function ChangeBook({ book, onDelete, onFinish }) {
         });
     }
 
+
     return (
         <div className='book-box'>
             {/* If imagelinks is undefined, don't show those books' covers */}
             {bookInfo.imageLinks !== undefined &&
-                <Card className='book-border' style={{ width: '18rem' }}>
+                <Card border="primary" bg="secondary" style={{ width: '18rem' }}>
                     <a href={bookInfo.infoLink} target="_blank" rel="noreferrer">
-                        <Card.Img className='cardimg' variant="top" src={bookInfo.imageLinks.thumbnail}
+                        <Card.Img variant="top" src={bookInfo.imageLinks.thumbnail}
                             alt={bookInfo.title} />
                     </a>
                     <Card.Body>

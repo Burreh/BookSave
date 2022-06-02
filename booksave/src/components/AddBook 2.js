@@ -20,14 +20,14 @@ export default function AddBook({ book, onFavourite }) {
         <div className='book-box'>
             {/* If imagelinks is undefined, don't show those books' covers */}
             {bookInfo.imageLinks !== undefined &&
-                <Card className='book-border' style={{ width: '18rem' }}>
+                <Card border="primary" bg="secondary" style={{ width: '18rem' }}>
                     <a href={bookInfo.infoLink} target="_blank" rel="noreferrer">
-                        <Card.Img className='cardimg' variant="top" src={bookInfo.imageLinks.thumbnail}
+                        <Card.Img variant="top" src={bookInfo.imageLinks.thumbnail}
                             alt={bookInfo.title} />
                     </a>
                     <Card.Body>
                         <Card.Title>{bookInfo.title}</Card.Title>
-                        <Button className='add-button' variant="primary" onClick={() => { onFavourite(book); notify() }}>Add To-Read</Button>
+                        <Button variant="primary" onClick={() => { onFavourite(book); notify() }}>Add To-Read</Button>
                     </Card.Body>
                 </Card>
             }

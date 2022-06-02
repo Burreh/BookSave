@@ -23,15 +23,34 @@
 
 #search-bar {
     width: 100%;
-    padding: 2%;
+    padding: 3%;
     border: 20%;
 }
 
 .heading {
     padding-top: 3vh;
     text-align: center;
+    color: azure;
 }
 
-button {
+.button {
     margin: 1%;
+}
+
+.book-border {
+    background-color: #212529;
+    color: azure;
+    text-align: center;
+}
+
+body {
+    background-color: #2d333b;
+}
+
+.cardimg {
+    height: 371px;
+}
+
+.card-body {
+    height: 100%;
 }
