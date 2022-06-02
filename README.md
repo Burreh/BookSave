@@ -12,7 +12,7 @@ This project was made with [Create React App](https://reactjs.org/docs/create-a-
 
 ## React VS Angular / Vue.js
 
-Why we chose React over Angular or Vue:
+#### React
 
 * React is scalable and flexible.
 * React is popular and used by many today. This means greater opportunity for solution proposals for any code-related problems.
@@ -20,11 +20,18 @@ Why we chose React over Angular or Vue:
 * React has an easier learning curve (in our opinion) compared to the other two.
 * Having knowledge about React is highly sought after among employers. 
 
+Why we chose React over Angular or Vue:
+
 #### Angular
 * Due to its complexity, we considered it unsuitable for this particular short-term project.
 * Compared to React, the learning curve is steep which makes it more difficult to learn as a beginner.
 * It uses TypeScrift which we are not used to, therefore we felt that we did not learn for this project
 
+#### Vue
+* Complex due to two different data binding
+* Compared to React or Angular, its community is still relatively small.
+* This can make it difficult to find solutions online
+* Vue also does not have as many plug-ins or components as other similar frameworks
 
 ## Install
 
