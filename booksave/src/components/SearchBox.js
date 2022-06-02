@@ -7,7 +7,7 @@ export default function SearchBox({ setSearch }) {
     const handleSubmit = (event) => {
         event.preventDefault();
         if (inputValue.current.value !== '') {
-            setSearch(inputValue.current.value);
+            setSearch(inputValue.current.value.toLowerCase());
         }
     }
 

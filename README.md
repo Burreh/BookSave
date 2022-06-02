@@ -20,29 +20,27 @@ Why we chose React over Angular or Vue:
 * React has an easier learning curve (in our opinion) compared to the other two.
 * Having knowledge about React is highly sought after among employers. 
 
+#### Angular
+* Due to its complexity, we considered it unsuitable for this particular short-term project.
+* Compared to React, the learning curve is steep which makes it more difficult to learn as a beginner.
+* It uses TypeScrift which we are not used to, therefore we felt that we did not learn for this project
+
 
 ## Install
 
 First, make sure you have installed [node.js](https://nodejs.org/en/).
-Create a new file called ```keys.json``` with structure identical to ```keys.json.ex```
+Create a new file called `keys.json` with structure identical to `keys.json.ex`
 Ask the developers of this project for the API-key to be put inside **keys.json**. 
-Furthermore, you need to install the modules below.
 
-Using npm:
-```bash
-$ npm install react-router-dom
-$ npm install react-bootstrap bootstrap
+Afterwards open a terminal and type:
 ```
-
-Using yarn:
-```bash
-$ yarn add react-router-dom
-$ yarn add react-bootstrap
+$ cd booksave
+$ npm install
 ```
 
 ## How to Run
 
-In the project directory, you can run:
+In that same project directory, you can run:
 
 ### `npm start`
 
@@ -50,6 +48,6 @@ Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 
-#### Project Members
+### Project Members
 - Boorhan Heele
 - Zeinab Brahmi

@@ -31,7 +31,7 @@ export default function App() {
       });
   };
 
-  // Re-renders each time the search (value) changes
+  // Re-renders and fetches each time the search (value) changes
   useEffect(() => {
     getBooks(search);
   }, [search]);
@@ -45,7 +45,7 @@ export default function App() {
 
     const booksFinished = localStorage.getItem('finished');
     if (booksFinished) {
-      setFavourites(JSON.parse(booksFinished));
+      setBooksRead(JSON.parse(booksFinished));
     }
     // Stops page from re-rendering as well as crashing with empty array
   }, []);
@@ -79,7 +79,7 @@ export default function App() {
     const newFinishedList = [...booksRead, book];
     setBooksRead(newFinishedList);
 
-    deleteFavourite(book)
+    deleteFavourite(book);
     localStorage.setItem('finished', JSON.stringify(newFinishedList));
   };
 
@@ -88,13 +88,14 @@ export default function App() {
     <>
       <Header />
       <Container fluid="md">
-        <SearchBox
-          setSearch={setSearch} />
         <Routes>
-          <Route path="/" element={
+          <Route path="/" element={<>
+            <SearchBox
+              setSearch={setSearch} />
             <BookList
               books={result}
-              onFavourite={addFavouriteBook} />} />
+              onFavourite={addFavouriteBook} />
+          </>} />
           <Route path="/To-read" element={
             <ToReadList
               books={favourites}
@@ -104,7 +105,7 @@ export default function App() {
             <FinishList
               books={booksRead} />} />
         </Routes>
-        <ToastContainer autoClose={2000} />
+        <ToastContainer autoClose={1200} />
       </Container >
     </>
   );
